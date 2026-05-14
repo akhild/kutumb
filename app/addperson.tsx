@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
 
-const Modal = () => {
+const ModalAddPerson = () => {
   return <View style={styles.container}>
-    <Text>This is Modal</Text>
+    <Text>This is Modal New Person Form</Text>
   </View>
 }
 
@@ -13,4 +13,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-export default Modal;
+
+export default ModalAddPerson;
