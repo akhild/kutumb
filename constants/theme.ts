@@ -11,11 +11,18 @@ const tintColorDark = '#fff';
 export const Colors = {
   light: {
     text: '#11181C',
-    background: '#fff',
+    background: '#ffffffff',
     tint: tintColorLight,
     icon: '#687076',
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
+    pastel_alpha: '#F9E1A8',
+    pastel_beta: '#D6E5B8',
+    pastel_gamma: '#DCCCEC',
+    pastel_delta: '#FFDAB4',
+    pastel_male: '#BCD8EC',
+    pastel_female: '#FFCBE1',
+    pastel_bg: '#fafafa',
   },
   dark: {
     text: '#ECEDEE',
@@ -24,6 +31,13 @@ export const Colors = {
     icon: '#9BA1A6',
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
+    pastel_alpha: '#F9E1A8',
+    pastel_beta: '#D6E5B8',
+    pastel_gamma: '#DCCCEC',
+    pastel_delta: '#FFDAB4',
+    pastel_male: '#BCD8EC',
+    pastel_female: '#FFCBE1',
+    pastel_bg: '#323232',
   },
 };
 
@@ -51,3 +65,5 @@ export const Fonts = Platform.select({
     mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
   },
 });
+
+export type AppColors = typeof Colors.light;

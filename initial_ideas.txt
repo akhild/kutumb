@@ -4,3 +4,6 @@ https://medium.com/@alexmanu.work/offline-support-for-react-native-with-realm-39
 
 https://medium.com/@Sunil_Kumar_RN/creating-a-reusable-zoomable-scroll-view-in-react-native-20956c59984e
 
+https://benhur-martins.medium.com/handling-double-and-single-tap-on-react-native-101b43bf4f2a
+
+https://egghead.io/lessons/react-native-implement-a-long-press-button-with-react-native-s-gesture-responder-system
