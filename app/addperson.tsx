@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 
 const ModalAddPerson = () => {
-  return <View style={styles.container}>
+  return <View className="flex-1 items-center">
     <Text>This is Modal New Person Form</Text>
   </View>
 }
