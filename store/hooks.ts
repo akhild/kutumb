@@ -1,5 +1,5 @@
 import { TPersonId, TRelationId } from '@/types/model';
-import { useDispatch, useSelector } from './store';
+import { useSelector } from './store';
 
 export const usePersons = () =>
   useSelector(state => state.persons.byId);
@@ -45,21 +45,4 @@ export const usePersonWithRelations = (personId: TPersonId) =>
     };
   });
 
-// hooks/useInitializeStore.ts
-import { Action, ThunkAction } from '@reduxjs/toolkit';
-import { useEffect } from 'react';
-
-/**
- * Custom hook to dispatch an action on mount.
- * @param initAction - The Redux action or thunk to dispatch.
- */
-export const useInitializeStore = (initAction?: Action | ThunkAction<any, any, any, any>) => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (initAction) {
-      dispatch(initAction);
-    }
-    // Empty dependency array ensures this runs only once on mount
-  }, [dispatch]);
-};
+export const useNewPerson = () => useSelector(state => state.newperson);

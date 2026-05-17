@@ -5,6 +5,8 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native
 import { Stack } from "expo-router";
 import { Provider } from "react-redux";
 
+
+import AddPersonHeaderRight from "@/components/ui/AddPersonHeaderRight";
 import "../global.css";
 
 export default function RootLayout() {
@@ -14,7 +16,11 @@ export default function RootLayout() {
       <StoreInitializer>
         <Stack >
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="addperson" options={{ presentation: "modal" }} />
+          <Stack.Screen name="addperson" options={{
+            headerTitle: "Add",
+            headerRight: (props) => <AddPersonHeaderRight tintColor={props.tintColor} canGoBack={props.canGoBack} />,
+            presentation: "modal"
+          }} />
         </Stack>
       </StoreInitializer>
     </Provider>

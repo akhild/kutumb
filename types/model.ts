@@ -39,6 +39,7 @@ export type TPerson = {
 
   photos: TMedia[];
   bio: string;
+  [key: string]: string | TMedia[] | TBirthData | TDeathData | TMetadata; // To Allow dynamic indexing
 };
 
 export type TRelationType = "parent_child" | "partner";

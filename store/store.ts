@@ -1,7 +1,8 @@
-import { TPersonId, TPersonMap, TRelationId, TRelationMap } from '@/types/model';
+import { TPersonCompiled, TPersonId, TPersonMap, TRelationId, TRelationMap } from '@/types/model';
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch as useReduxDispatch, useSelector as useReduxSelector } from 'react-redux';
-import personSlice from "./personslice";
+import newPersonSlice from "./newpersonslice";
+import personSlice, { addPersonMiddleware } from "./personslice";
 import relationsSlice from "./relationslice";
 // import { RootState } from './store';
 
@@ -15,6 +16,7 @@ export type RootState = {
     byId: TRelationMap;
     allIds: TRelationId[];
   };
+  newperson: TPersonCompiled & { error: string | undefined };
 };
 
 // Configure Store
@@ -22,7 +24,10 @@ export const store = configureStore({
   reducer: {
     persons: personSlice,
     relations: relationsSlice,
+    newperson: newPersonSlice,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(addPersonMiddleware),
 });
 
 export type AppStore = typeof store;

@@ -1,5 +1,5 @@
 import { TPersonId, TPersonMap } from '@/types/model';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, Middleware, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
 
 const initialState: RootState["persons"] = {
@@ -30,6 +30,24 @@ const personsSlice = createSlice({
     },
   },
 });
+
+// Middleware to add id
+export const addPersonMiddleware: Middleware<{}, RootState> = (store) => (next) => (action: any) => {
+  if (action.type === "persons/addPerson") {
+    const enriched = {
+      ...action,
+      payload: {
+        ...action.payload,
+        person: {
+          ...action.payload.person,
+          _id: `${Date.now()}`
+        }
+      }
+    };
+    return next(enriched);
+  }
+  return next(action);
+};
 
 export default personsSlice.reducer;
 export const { setPersons, addPerson, updatePerson, removePerson } = personsSlice.actions;
