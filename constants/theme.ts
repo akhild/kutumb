@@ -24,7 +24,9 @@ export const Colors = {
     pastel_female: '#FFCBE1',
     pastel_bg: '#fafafa',
     pastel_bg_2: '#e1e1e1',
-    overlay: '#00000018'
+    overlay: '#00000018',
+    error: '#ff6666',
+    success: '#008000'
   },
   dark: {
     text: '#ECEDEE',
@@ -41,7 +43,9 @@ export const Colors = {
     pastel_female: '#FFCBE1',
     pastel_bg: '#323232',
     pastel_bg_2: '#5a5a5a',
-    overlay: '#ffffff18'
+    overlay: '#ffffff18',
+    error: '#ff6666',
+    success: '#7fbf7f'
   },
 };
 

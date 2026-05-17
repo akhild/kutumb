@@ -2,10 +2,11 @@ import { AppColors, Colors } from "@/constants/theme";
 import { usePerson } from "@/store/hooks";
 import { TPersonId } from "@/types/model";
 import { StyleSheet, useColorScheme, View } from "react-native";
+import AnimatedBackground from "./AnimatedBackground";
 import PersonCardMedium from "./PersonCardMedium";
 import { TouchableRelationCard } from "./RelationCard";
 
-const PersonCardMain = ({ id }: { id: TPersonId }) => {
+const PersonCardMain = ({ id, active }: { id: TPersonId, active: boolean }) => {
   const person = usePerson(id);
   const colorScheme = useColorScheme();
   const colors = Colors[colorScheme ?? 'light'];
@@ -13,7 +14,7 @@ const PersonCardMain = ({ id }: { id: TPersonId }) => {
 
   if (!person) return;
 
-  return <View style={styles.item}>
+  return <AnimatedBackground active={active} style={styles.item}>
     <View style={styles.parent}><>
       {person.up.map((id) => {
         return <TouchableRelationCard callerid={person._id} relationid={id} key={id} />
@@ -37,13 +38,15 @@ const PersonCardMain = ({ id }: { id: TPersonId }) => {
         })}
       </View>
     </View>
-  </View>
+  </AnimatedBackground>
 };
 
 const createStyles = (colors: AppColors) => StyleSheet.create({
   item: {
     flex: 1,
     flexDirection: "row",
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
   },
   parent: {
     flex: 1,

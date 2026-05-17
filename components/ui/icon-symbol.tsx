@@ -18,9 +18,11 @@ const MAPPING = {
   'paperplane.fill': 'send',
   'chevron.left.forwardslash.chevron.right': 'code-tags',
   'chevron.right': 'chevron-right',
+  'chevron.left': 'chevron-left',
   'tree.fill': 'family-tree',
   'person.2.badge.plus': 'account-multiple-plus-outline',
   'eye': 'account-eye-outline',
+  'magnifyingglass': 'magnify',
 } as IconMapping;
 
 /**

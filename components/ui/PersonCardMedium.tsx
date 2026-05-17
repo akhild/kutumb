@@ -41,11 +41,11 @@ const PersonCardMedium = ({ person, buttons }: { person: TPerson, buttons: boole
         {/* buttons */}
         <TouchableOpacity accessibilityLabel="Add New Relation"
           style={styles.button} >
-          <IconSymbol name="person.2.badge.plus" color={"black"} size={20} style={styles.button_text} ></IconSymbol>
+          <IconSymbol name="person.2.badge.plus" color={colors.text} size={20} style={styles.button_text} ></IconSymbol>
         </TouchableOpacity>
         <TouchableOpacity accessibilityLabel="View Person"
           style={styles.button} >
-          <IconSymbol name="eye" color={"black"} size={20} style={styles.button_text} ></IconSymbol>
+          <IconSymbol name="eye" color={colors.text} size={20} style={styles.button_text} ></IconSymbol>
         </TouchableOpacity>
       </View>}
     </View >
