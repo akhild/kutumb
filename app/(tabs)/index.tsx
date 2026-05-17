@@ -5,7 +5,7 @@ export default function Index() {
   return (
     <View style={styles.home}>
       <Text>Welcome to my home.</Text>
-      <Link href="/modal">Check Modal</Link>
+      <Link href="/addperson">Check Modal</Link>
     </View>
   );
 }
