@@ -19,6 +19,8 @@ const MAPPING = {
   'chevron.left.forwardslash.chevron.right': 'code-tags',
   'chevron.right': 'chevron-right',
   'tree.fill': 'family-tree',
+  'person.2.badge.plus': 'account-multiple-plus-outline',
+  'eye': 'account-eye-outline',
 } as IconMapping;
 
 /**

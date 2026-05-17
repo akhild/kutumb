@@ -35,10 +35,15 @@ const createStyles = (colors: AppColors) => StyleSheet.create({
   home: {
     flex: 1,
     paddingHorizontal: 10,
+    backgroundColor: colors.background,
   },
   separator: {
     width: "100%",
-    height: 5,
-    backgroundColor: colors.pastel_male,
+    backgroundColor: colors.pastel_delta,
+    borderColor: colors.overlay,
+    borderWidth: 1,
+    marginHorizontal: 10,
+    borderRadius: 10,
+    marginVertical: 3,
   }
 });
