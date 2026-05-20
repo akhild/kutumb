@@ -30,6 +30,7 @@ const MAPPING = {
   'magnifyingglass': 'magnify',
   'camera': 'camera-outline',
   'calendar': 'calendar',
+  'location.circle.fill': 'map-marker-multiple',
 } as IconMapping;
 
 /**
