@@ -66,7 +66,6 @@ const ProfilePictureEditor = ({ personId }: {
     if (personId !== undefined && person) {
       person.photos.push({
         url: uri,
-        base64: base64,
         primary: false
       });
       dispatch(updatePerson({ person }));
