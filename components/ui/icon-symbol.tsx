@@ -31,6 +31,7 @@ const MAPPING = {
   'camera': 'camera-outline',
   'calendar': 'calendar',
   'location.circle.fill': 'map-marker-multiple',
+  'xmark.circle.fill': 'close-circle',
 } as IconMapping;
 
 /**

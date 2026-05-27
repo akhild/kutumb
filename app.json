@@ -40,6 +40,13 @@
             "backgroundColor": "#000000"
           }
         }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you store profile images of your relatives.",
+          "cameraPermission": "Allow to instantly capture photos of your relatives, using camera"
+        }
       ]
     ],
     "experiments": {

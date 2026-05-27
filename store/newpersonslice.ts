@@ -61,6 +61,9 @@ const newPersonSlice = createSlice({
         primary: true,
       });
     },
+    removeProfilePicture: (state) => {
+      state.photos = [];
+    },
     setError: (state, action: PayloadAction<{ value: string }>) => {
       state.error = action.payload.value
     },
@@ -69,4 +72,4 @@ const newPersonSlice = createSlice({
 });
 
 export default newPersonSlice.reducer;
-export const { setString, setDoBirth, setDoDeath, setPoBirth, setPoDeath, addProfilePicture, setError, reset } = newPersonSlice.actions;
+export const { setString, setDoBirth, setDoDeath, setPoBirth, setPoDeath, addProfilePicture, setError, reset, removeProfilePicture } = newPersonSlice.actions;

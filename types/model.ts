@@ -21,6 +21,7 @@ export type TMetadata = {
 };
 export type TMedia = {
   url: string;
+  base64?: string | null;
   primary: boolean;
 };
 

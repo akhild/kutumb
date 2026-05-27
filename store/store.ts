@@ -49,5 +49,3 @@ export type Dispatch = AppStore['dispatch']
 export const useSelector: TypedUseSelectorHook<RootState> = useReduxSelector;
 export const useDispatch: () => Dispatch = useReduxDispatch;
 export const AppPersistor = persistStore(store);
-
-
