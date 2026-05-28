@@ -1,13 +1,10 @@
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { Colors } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";
-import { Cleanup } from "@/utils/profilepictureutils";
 import { Tabs } from "expo-router";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-
-  Cleanup();
 
   return (
     <Tabs
@@ -25,6 +22,11 @@ export default function TabLayout() {
       <Tabs.Screen name="tree" options={{
         title: 'Tree',
         tabBarIcon: ({ color }) => <IconSymbol size={28} name="tree.fill" color={color} />,
+      }}
+      />
+      <Tabs.Screen name="settings" options={{
+        headerShown: false,
+        tabBarIcon: ({ color }) => <IconSymbol size={28} name='gear' color={color} />,
       }}
       />
     </Tabs>
