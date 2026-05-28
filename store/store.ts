@@ -4,6 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch as useReduxDispatch, useSelector as useReduxSelector } from 'react-redux';
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore } from 'redux-persist';
 import newPersonSlice from "./newpersonslice";
+import ownerSlice from "./ownerslice";
 import personSlice, { addPersonMiddleware } from "./personslice";
 import relationsSlice from "./relationslice";
 
@@ -18,12 +19,16 @@ export type RootState = {
     allIds: TRelationId[];
   };
   newperson: TPersonCompiled & { error: string | undefined };
+  owner: {
+    id: TPersonId
+  }
 };
 
 const rootReducer = combineReducers({
   persons: personSlice,
   relations: relationsSlice,
   newperson: newPersonSlice,
+  owner: ownerSlice,
 });
 
 const persistConfig = {

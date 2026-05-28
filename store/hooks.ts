@@ -45,4 +45,9 @@ export const usePersonWithRelations = (personId: TPersonId) =>
     };
   });
 
+// Selector Hooks for Relations
 export const useNewPerson = () => useSelector(state => state.newperson);
+
+// Selector Hooks for app owner
+export const useOwner = () => useSelector(state => state.owner);
+export const useOwnerId = () => useSelector(state => state.owner.id);
