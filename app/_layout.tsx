@@ -23,6 +23,7 @@ export default function RootLayout() {
               headerRight: (props) => <AddPersonHeaderRight tintColor={props.tintColor} canGoBack={props.canGoBack} />,
               presentation: "modal"
             }} />
+            <Stack.Screen name="editperson/[personid]" options={{ title: 'Edit Profile' }} />
           </Stack>
         </StoreInitializer>
       </PersistGate>

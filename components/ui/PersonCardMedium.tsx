@@ -1,6 +1,7 @@
 import { AppColors, Colors } from '@/constants/theme';
 import { TPerson } from '@/types/model';
 import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, useColorScheme, View } from 'react-native';
 import { IconSymbol } from './icon-symbol';
@@ -10,6 +11,7 @@ const PersonCardMedium = ({ person, buttons }: { person: TPerson, buttons: boole
   const colorScheme = useColorScheme();
   const colors = Colors[colorScheme ?? 'light'];
   const styles = createStyles(colors);
+  const router = useRouter();
 
   const imagebgcolor = person.gender === "male" ? colors.pastel_male : colors.pastel_female;
   const imageplaceholder = person.gender === "male"
@@ -44,8 +46,11 @@ const PersonCardMedium = ({ person, buttons }: { person: TPerson, buttons: boole
           <IconSymbol name="person.2.badge.plus" color={colors.text} size={20} style={styles.button_text} ></IconSymbol>
         </TouchableOpacity>
         <TouchableOpacity accessibilityLabel="View Person"
+          onPress={() => {
+            router.push(`/editperson/${person._id}`);
+          }}
           style={styles.button} >
-          <IconSymbol name="eye" color={colors.text} size={20} style={styles.button_text} ></IconSymbol>
+          <IconSymbol name="square.and.pencil" color={colors.text} size={20} style={styles.button_text} ></IconSymbol>
         </TouchableOpacity>
       </View>}
     </View >

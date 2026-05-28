@@ -26,7 +26,7 @@ const MAPPING = {
   'person.badge.plus.fill': 'account-plus',
   'person.crop.circle': 'account-circle-outline',
   'person.crop.circle.badge.plus': 'account-circle-outline',
-  'eye': 'account-eye-outline',
+  'square.and.pencil': 'pencil-box-outline',
   'magnifyingglass': 'magnify',
   'camera': 'camera-outline',
   'calendar': 'calendar',

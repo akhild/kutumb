@@ -28,6 +28,9 @@ export const removeBase64 = async (uri: string, normalized: boolean) => {
   }
 }
 
+/**
+ * Hook, to do base64 cleanup before close
+ */
 export const Cleanup = () => {
   const persons = usePersons();
 
