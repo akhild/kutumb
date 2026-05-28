@@ -6,7 +6,7 @@ export type TGender = "male" | "female" | "na";
  */
 export type TBirthData = {
   date?: number;
-  place?: string | null;
+  place?: string;
 };
 export type TDeathData = {
   date?: number;
@@ -40,7 +40,7 @@ export type TPerson = {
 
   photos: TMedia[];
   bio: string;
-  [key: string]: string | TMedia[] | TBirthData | TDeathData | TMetadata; // To Allow dynamic indexing
+  [key: string]: string | string[] | TMedia[] | TBirthData | TDeathData | TMetadata; // To Allow dynamic indexing
 };
 
 export type TRelationType = "parent_child" | "partner";

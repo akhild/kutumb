@@ -21,8 +21,36 @@ const personsSlice = createSlice({
         state.allIds.push(action.payload.person._id);
       }
     },
-    updatePerson: (state, action: PayloadAction<{ person: TPersonMap[TPersonId] }>) => {
-      state.byId[action.payload.person._id] = action.payload.person;
+    updatePerson: (state, action: PayloadAction<{ id: TPersonId, value: string | number, label: string }>) => {
+      const { id, value, label } = action.payload;
+      let person = state.byId[id];
+      switch (label) {
+        case "dob":
+          person.birth.date = value as number;
+          break;
+        case "dod":
+          person.death.date = value as number;
+          break;
+        case "pob":
+          person.birth.place = value as string;
+          break;
+        case "pod":
+          person.death.place = value as string;
+          break;
+        default:
+          person[label] = value as string;
+          break;
+      }
+    },
+    updatePersonProfilePicture: (state, action: PayloadAction<{ id: TPersonId, uri?: string }>) => {
+      state.byId[action.payload.id].photos = [];  // clear photos
+      if (action.payload.uri === undefined) {
+        return;
+      }
+      state.byId[action.payload.id].photos.push({
+        url: action.payload.uri,
+        primary: true,
+      });
     },
     removePerson: (state, action: PayloadAction<{ id: TPersonId }>) => {
       delete state.byId[action.payload.id];
@@ -50,4 +78,4 @@ export const addPersonMiddleware: Middleware<{}, RootState> = (store) => (next) 
 };
 
 export default personsSlice.reducer;
-export const { setPersons, addPerson, updatePerson, removePerson } = personsSlice.actions;
+export const { setPersons, addPerson, updatePerson, updatePersonProfilePicture, removePerson } = personsSlice.actions;

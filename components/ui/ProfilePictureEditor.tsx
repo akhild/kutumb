@@ -1,12 +1,12 @@
 import { Colors } from "@/constants/theme";
 import { usePerson } from "@/store/hooks";
 import { addProfilePicture, removeProfilePicture } from "@/store/newpersonslice";
-import { updatePerson } from "@/store/personslice";
+import { updatePersonProfilePicture } from "@/store/personslice";
 import { useDispatch } from "@/store/store";
+import { TGender, TPersonCompiled } from "@/types/model";
 import { Directory, File, Paths } from 'expo-file-system';
 import React, { useState } from 'react';
 import { Text, TouchableOpacity, useColorScheme, View } from 'react-native';
-import { IconSymbol } from "./icon-symbol";
 import { CameraComponent, ImagePickerComponent } from "./ImagePickerComponent";
 import ProfilePhoto from "./ProfilePhoto";
 
@@ -44,8 +44,9 @@ const saveBase64ToJpeg = async (base64String: string, fileName: string) => {
  * 
  * @returns View for profile picture editing
  */
-const ProfilePictureEditor = ({ personId }: {
+const ProfilePictureEditor = ({ personId, gender }: {
   personId?: string;
+  gender?: TGender;
 }) => {
   const scheme = useColorScheme();
   const colors = Colors[scheme ?? 'light'];
@@ -54,9 +55,11 @@ const ProfilePictureEditor = ({ personId }: {
   const [uri, setUri] = useState<string>();
   const [cameraTrigger, triggerCamera] = useState<boolean>(false);
   const [mediaTrigger, triggerMedia] = useState<boolean>(false);
-  const [saveTrigger, triggerSave] = useState<boolean>(false);
+  // const [saveTrigger, triggerSave] = useState<boolean>(false);
 
   const person = personId && usePerson(personId);
+  const persongender = person !== undefined ? (person as TPersonCompiled).gender : gender;
+
 
   const dispatch = useDispatch();
 
@@ -64,11 +67,7 @@ const ProfilePictureEditor = ({ personId }: {
   const setProfilePicture = (uri: string, base64?: string | null) => {
     // this assumes the uri is from app document location
     if (personId !== undefined && person) {
-      person.photos.push({
-        url: uri,
-        primary: false
-      });
-      dispatch(updatePerson({ person }));
+      dispatch(updatePersonProfilePicture({ id: personId, uri: uri }));
     }
     else {
       // set the same to newperson slice
@@ -95,7 +94,7 @@ const ProfilePictureEditor = ({ personId }: {
   const removeProfilePictureHelper = () => {
     if (personId !== undefined && person) {
       person.photos = [];
-      dispatch(updatePerson({ person }));
+      dispatch(updatePersonProfilePicture({ id: personId, uri: undefined }));
     }
     else {
       dispatch(removeProfilePicture());
@@ -105,8 +104,7 @@ const ProfilePictureEditor = ({ personId }: {
 
   return (
     <View className='w-10/12 items-center'>
-      {uri && <ProfilePhoto uri={uri} />}
-      {!uri && <IconSymbol name="person.crop.circle.badge.plus" color={colors.text} size={200} className="" />}
+      <ProfilePhoto uri={uri} gender={persongender} />
       <TouchableOpacity className="rounded-full bg-blue-200 p-4 my-2 items-center w-full"
         onPress={() => triggerCamera(prev => !prev)}
       >

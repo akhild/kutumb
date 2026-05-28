@@ -32,6 +32,8 @@ const MAPPING = {
   'calendar': 'calendar',
   'location.circle.fill': 'map-marker-multiple',
   'xmark.circle.fill': 'close-circle',
+  'trash': 'trash-can-outline',
+  'gear': 'cog-outline',
 } as IconMapping;
 
 /**
